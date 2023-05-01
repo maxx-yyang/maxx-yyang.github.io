@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>D3: SVG bar chart with value labels (centered)</title>
+    <script type="text/javascript" src="./d3.js"></script>
+    <style type="text/css">
+        /* No style rules here yet */
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .boro-button {
+            margin-right: 1rem;
+            padding: 0.5rem 0.2rem;
+        }
+
+        /* .boro-btn:hover {
+			opacity: 0.6;
+		} */
+    </style>
+</head>
+
+<body>
+    <h2 id="title">All Borough</h2>
+    <div class="buttons">
+        <button class="boro-btn" id="overall">All Borough</button>
+        <button class="boro-btn" id="manhattan" data-index="1">manhattan</button>
+        <button class="boro-btn" id="bronx" data-index="2">bronx</button>
+        <button class="boro-btn" id="brooklyn" data-index="3">brooklyn</button>
+        <button class="boro-btn" id="queens" data-index="4">queens</button>
+    </div>
+    <script type="text/javascript">
+        d3.csv("storefront_MapPluto_NTA.csv").then(function (data) {
+            console.log(data)
+            scatterPlot(data)
+        });
+
+        function scatterPlot(data) {
+            var w = 800;
+            var h = 600;
+            var padding = 20;
+            var xScale = d3.scaleLinear()
+                .domain([0, 0.3])
+                .rangeRound([0, w - padding * 2])
+
+            var yScale = d3.scaleLinear()
+                .domain([0, 250])
+                .range([h - padding, 0]);
+
+            var rScale = d3.scaleLinear()
+                .domain([
+                    0,  //Because I want a zero baseline
+                    d3.max(data, function (d) { return parseInt(d["count_all"]); })
+                ])
+                .range([2, 20]);
+
+            const uniqueValues = Array.from(new Set(data.map(i => i.boro___x)))
+            console.log(uniqueValues)
+            const colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain(uniqueValues)
+
+
+            var div = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+            console.log(div)
+
+            //Create SVG element
+            var svg = d3.select("body")
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h)
+                .attr("transform", "translate(20, 0)")
+                .attr("viewBox", [0, 0, w + padding * 2, h + padding * 2])
+
+            xAxis = d3.axisBottom()
+                .scale(xScale)
+                .ticks(9)//TODO: change ticks 
+
+            //Define Y axis
+            yAxis = d3.axisLeft()
+                .scale(yScale)
+                .ticks(10);
+
+
+            const circles = svg.selectAll("circle")
+                .data(data.filter(d => d.boro___x))
+
+            circles
+                .enter().append("circle")
+                .attr('class', d => d.boro___x)
+                .attr("cx", function (d) {
+                    return xScale(d.vacant_ratio);
+                })
+                .attr("cy", function (d) {
+                    return yScale(d.unit_value_mean_y)
+                })
+                .attr("r", d => rScale(d.count_all))
+                .style("fill", d => colorScale(d.boro___x))
+                .attr("opacity", .6)
+                .on('mouseover', function (d, i) {
+                    d3.select(event.currentTarget).transition()
+                        .duration('100')
+                        .attr("opacity", .85)
+                        .attr("r", rScale(d.count_all) * 1.3)
+                        // .text(function () {
+                        //     return d.boro___x;
+                        // })
+                })
+                .on('mouseout', function (d, i) {
+                    d3.select(event.currentTarget).transition()
+                        .duration('200')
+                        .attr("opacity", .6)
+                        .attr("r", rScale(d.count_all));
+                });
+
+
+
+
+            const boroCircles = document.querySelectorAll('circle')
+            const buttons = document.querySelectorAll('.boro-btn')
+            Array.from(buttons).forEach(button => {
+                button.addEventListener('click', (event) => {
+                    if (button.id !== 'overall') {
+                        let boroNum = event.target.attributes['data-index'].value
+                        Array.from(boroCircles).forEach(circle => {
+                            if (+circle.classList === +boroNum) {
+                                circle.attributes['opacity'].value = 0.6
+                                circle.attributes['style'].value = `fill: ${colorScale(boroNum)}`
+                            } else {
+                                circle.attributes['opacity'].value = 0.05
+                                circle.attributes['style'].value = 'grey'
+                            }
+                        })
+                    } else {
+                        Array.from(boroCircles).forEach(circle => {
+                            circle.attributes['opacity'].value = 0.6
+                            circle.attributes['style'].value = `fill: ${colorScale(circle.classList.value)}`
+                        })
+                    }
+
+
+
+                    document.querySelector('#title').innerText = button.innerText
+
+                })
+            })
+            // circles.append('title').text(d => `NTA:${d.boro___x}\nVacant Storefront Ratio: ${+d.vacant_ratio}\nMedian Land Unit Value: ${+d.unit_value_mean_y}`)
+
+            //Create X axis
+            svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(20," + (h - padding) + ")")
+                .call(xAxis);
+
+            //Create Y axis
+            svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(" + padding + ",0)")
+                .call(yAxis);
+        }
+    </script>
+</body>
+
+</html>

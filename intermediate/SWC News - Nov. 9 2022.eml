@@ -1,0 +1,3757 @@
+Delivered-To: sc4931@lionmailmx.cc.columbia.edu
+Received: by 2002:ac8:7f01:0:b0:3a5:92f:3b23 with SMTP id f1csp163908qtk;
+        Wed, 2 Nov 2022 18:59:01 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM4IP9B9fQHWr66qVImJzjH4X6D6mzsCYbxUcaOn+4Rcti6u72Jzv+L/eCzlbIsSoWe+jgiG
+X-Received: by 2002:a0d:de84:0:b0:35b:87ad:7042 with SMTP id h126-20020a0dde84000000b0035b87ad7042mr27261537ywe.440.1667440741589;
+        Wed, 02 Nov 2022 18:59:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1667440741; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0r3dn0vSfb0VjjpLpkLTGxjKzUTW8/12yiRQiDEIOcQKhB/FBkmYi+8GI5/3torkR/
+         90F0K+4dSjBiC2AcX11FFGuIlEW7k2k3J3TF4Zj/NyQY0m/Qrl/YnGTuTHJ8o1BqW6yi
+         JLAQ08Xt5jgnftNgfCYUf87BaM4udlv6WxLTu/z8HAezvDSNz44zzDLd4rzNAP+wNd3/
+         7duxT7sswLxVYfURQfsgnHZAIPvC76MMNFiIOVAvcf0BeudrJmlNAXMCpZpKxebX/m4m
+         9QY6ZvuMCkp6W84OSCykvnt229TWRUQ2LN7kmjDZwwjS6RHHL7GBfLSBBwF+y+4RRW37
+         fvlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature;
+        bh=HuIN7v7hV9GPfIcMN30DSWacy9qWNcFvrCOGTQgll18=;
+        b=htV5PZLr4g1vWe3JB6n6aRBmM/YxP3uk4vQooXRBFh2KHWU/Qg3qUnAMa/wmZAc5g7
+         22Gj4AjUo8JHTiLuwOeWDAFrQm2r/g7K9gwa19I7PUjoD5AEAAaYaIYmbeg56F5s54kR
+         Az4JzWarfaSEiTKGZy1yS3MUVU/0I7T/bWIwE3WEh8OJj9LbEN1o4RXAGsn21QDGBk2m
+         xhNY1PKG6uEb+iTGp/rukCGekbfO+ts51bINYbPbfTFsNGF0ATm8Ci6E4X5RP5DhvBdG
+         Ecn2/yQRpp2P3HwwaGIVPS/pLT9nJEN7fU/HHPfVOp4FQ3h2WqQq3NyD7c1k69GfC2ML
+         igDA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@studentworkersofcolumbia.com header.s=k3 header.b=AhDeaHAm;
+       spf=pass (google.com: domain of bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net designates 198.2.183.86 as permitted sender) smtp.mailfrom=bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net
+Return-Path: <bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net>
+Received: from mx0b-00364e01.pphosted.com (mx0b-00364e01.pphosted.com. [148.163.139.74])
+        by mx.google.com with ESMTPS id g188-20020a2520c5000000b006cad50a4c98si15809852ybg.563.2022.11.02.18.59.01
+        for <sc4931@lionmailmx.cc.columbia.edu>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Nov 2022 18:59:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net designates 198.2.183.86 as permitted sender) client-ip=198.2.183.86;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@studentworkersofcolumbia.com header.s=k3 header.b=AhDeaHAm;
+       spf=pass (google.com: domain of bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net designates 198.2.183.86 as permitted sender) smtp.mailfrom=bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net
+Received: from pps.filterd (m0167073.ppops.net [127.0.0.1])
+	by mx0b-00364e01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 2A31vYri030949
+	for <sc4931@columbia.edu>; Wed, 2 Nov 2022 21:59:01 -0400
+Authentication-Results: ppops.net;
+	spf=pass smtp.mailfrom=bounce-mc.us13_59762233.724835-3121083181@mail86.suw13.rsgsv.net;
+	dkim=pass header.d=studentworkersofcolumbia.com header.s=k3
+Received: from mail86.suw13.rsgsv.net (mail86.suw13.rsgsv.net [198.2.183.86])
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 3kh02f8qf7-37
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <sc4931@columbia.edu>; Wed, 02 Nov 2022 21:59:00 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=studentworkersofcolumbia.com; s=k3; t=1667439994; x=1667742394;
+	i=info@studentworkersofcolumbia.com;
+	bh=HuIN7v7hV9GPfIcMN30DSWacy9qWNcFvrCOGTQgll18=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=AhDeaHAml7pvix4gPSItv5ekAi3c2sE5mz0+Hn8+Ye6J45sSkdVoue5KORWPrYcxJ
+	 z0a8YecjSl9h1dcTMR8J8FjoeORBvOz+RIHvmngS+6zR94Qb+HzM/k6F++OpLTRIvt
+	 xSgqyB+QdqlRO/r9R7S2j7SqT6ztYQ+5sbVypYq0/LEzz/ftWoCEB69ThP1VXp4egh
+	 oyCWhpi/ozlQLTSVbS9W+38tghUuSnB6LS0cTFVPHkVVkLFxbkpVUz006moXsqfF5g
+	 k1KEvClkalxtVmVY/xs5DqeM2WbuNBzP+BMoMHMKUFghNEFPyc39eZXPL3r7SMI7lQ
+	 VCAJlBf2xvitQ==
+Received: from localhost (localhost [127.0.0.1])
+	by mail86.suw13.rsgsv.net (Mailchimp) with ESMTP id 4N2mnk3RCVz899c
+	for <sc4931@columbia.edu>; Thu,  3 Nov 2022 01:46:34 +0000 (GMT)
+Subject: =?utf-8?Q?SWC=20News=20=2D=20Nov.=209=202022?=
+From: =?utf-8?Q?The=20Wednesday=20Worker?= <info@studentworkersofcolumbia.com>
+Reply-To: =?utf-8?Q?The=20Wednesday=20Worker?= <info@studentworkersofcolumbia.com>
+To: <sc4931@columbia.edu>
+Date: Thu,  3 Nov 2022 01:46:26 +0000
+Message-ID: <bf112f248486fb48a139e6aa2.3121083181.20221103014616.6c2e5d5c51.dd634c48@mail86.suw13.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID6c2e5d5c513121083181**
+X-Campaign: mailchimpbf112f248486fb48a139e6aa2.6c2e5d5c51
+X-campaignid: mailchimpbf112f248486fb48a139e6aa2.6c2e5d5c51
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=bf112f248486fb48a139e6aa2&id=6c2e5d5c51&e=3121083181
+X-MC-User: bf112f248486fb48a139e6aa2
+Feedback-ID: 59762233:59762233.724835:us13:mc
+List-ID: bf112f248486fb48a139e6aa2mc list <bf112f248486fb48a139e6aa2.239373.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://columbiagradunion.us13.list-manage.com/unsubscribe?u=bf112f248486fb48a139e6aa2&id=99b5b180ae&e=3121083181&c=6c2e5d5c51>, <mailto:unsubscribe-mc.us13_bf112f248486fb48a139e6aa2.6c2e5d5c51-3121083181@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1070148371"
+MIME-Version: 1.0
+X-CLX-Response: 1TFkXEx0RCkx6Fx4eHxEKWUQXbxpwbV1JAWccEx8RClhYF2RMY15yBUheExx JEQp4Thdnf3seBW95X2l5aBEKeEsXZExjXnIFSF4THEkRCnhMF2xHRVNwaB1nTURPEQp5TBdsR0 VTcGgdZ01ETxEKQ0gXBxgcExEKQ1kXBxsTGxEKQ0kXGgQaGhoRCllNF2dmchEKWUkXGnEaEBp3B
+ h0dcRgZGxwQGRITdwYYGgYaEQpZXhdsbHkRCklGF0lFRl9HSENLX0RDXHVCRVleT04RCklHF3hP TREKQ04XXmUec08bQG5hR2tTWWhyexlNH0xbbU5QcBlmW39NbW0RClhcFx8EGgQYHRIFGxoEGxs aBBsZHgQZHhAbHhofGhEKXlkXS0dnf2sRCk1cFxwaHxEKTFoXaWttQk1dEQpNThdoEQpMRhdva2
+ tra2sRCkJPF2FTQh9jYB56XBptEQpDWhcbExIEGAQbEhkEEhwRCkJeFxsRCkJGF2VnRB5QWBMSZ 1BBEQpCRxdpH2FmQXNYcGZOfhEKQlwXGxEKXk4XGxEKQksXZ397HgVveV9peWgRCkJJF2d/ex4F b3lfaXloEQpCRRdkXEBmRwFuaV1aSxEKQk4XZ397HgVveV9peWgRCkJMF2RMY15yBUheExxJEQp
+ CbBdlZk4aXlJ6S2ltYREKQkAXaFkcclobfBpBE14RCkJYF29pbhJkXkVfQmZwEQpaWBcYHBEKeU MXbk96WktObHJ8T0MRCnBnF2xEHRpPWltcQHpLEB4SEQpwaBdsbR0bH0xvbFllYxATGBEKcGgXa UBiZElpTmd6c2sQEhwRCnBoF2YFSx9ZQGVnfEJIEBIfEQpwaBd6Tl9ZQ0lQfnwBGBASGxEKcGgX
+ ZB0eTW5iaUQcEnIQHR8RCnBoF2UfBWVtfXNyfQVdEB4SEQpwaBdhTkNuGk5acnp/axAbGB0RCnB oF2RJXEhgUGQTTwUZEBwdEQpwfRd6fEZ9WAFLGlt+WxAeEhEKcH0XbEVmBVwSb10eQEsQHhIRCn B9F2ZlS0tEHQFTYWRBEB4SEQpwfRdsBWF7QkVSRExObhAeEhEKcH0XYEhbfmtySB1kBW4QHhIRC
+ nB9F21sSUwaeGtZekRrEB4SEQpwfRdlch4BQ2d8SBprXxAeEhEKcH0XYUhQGh58TGEFaVsQHhIR CnB9F2d7Qm9MTX9Pa1NyEB4SEQpwfRdvbkFgbk5HaVhpbRAeEhEKcH0Xenl6UmlaW1JjG2QQHhI RCnB9F2FaGkViH1hbSAV7EB4SEQpwfRdkSGhBSHJBeEhNbBAeEhEKcH0Xb2JzaXkZSUsBHkcQHh
+ IRCnBnF2N+ZGZufkVNW0Z5EB4SEQpwZxdkaxpkQnx5RENpbBAeEhEKcGcXa0AacHxkfGJQb28QH hIRCnBnF2ZYbXppbx0FSwFmEB4SEQpwZxdnfHJFQHl7Qn8fYBAeEhEKcGcXZ1BJZxtmaHIbbRsQ HhIRCnB9F25oQn5aRVgeE3p/EB4SEQpwfRdkRX5NaxNwYX9fWBAeEhEKcH0XYGtGG0scXm5HQAU
+ QHhIRCnBnF2dHZkB7SXxDQk5AEB4SEQpwfRdtWkBlS1NDHG1abhAeEhEKcH0XaBsScGsZGltAc2 MQHhIRCnB9F24ZTGFIfEEYaxhDEB4SEQpwfRdgZRpdaxpvH0xMGhAeEhEKcH0XbVxcEmESSHpAR kwQGhEKcH0Xem9TW05aTF1zBUwQGhEKcH0XaFsFBUBMfQVaY2AQHhIRCnB9F2BNQk9yZEBIS0NC
+ EB8fEQpwfRdoQERmQUhYU39bYxAeEhEKcH8XZlJvGXgceRtEHFAQHBoRCnBfF2BcXFJack9PRk1 oEB4SEQpwfxdvRGFQEhN/GxwSfhAdHREKcF8XehJvH05SZEJgbkwQHhIRCnB/F2NwXhNSZV1yHB tAEB4SEQpwXxdvBRlOQWJbGVhBbBAeEhEKcH8Xb3BdelxoRFNsZRgQHRMRCnBfF2FZZkVeZHlfY
+ 05mEB4SEQpwfxdhW05aXRsSZWxaeRAbGx0RCnBfF2VwH2BrW2tPS0hoEBsYEhEKcF8XenIdHG9L TBJFQAEQGxgfEQpwfxdvG0FoemNmHkhmExASExEKcF8XbhhaRhtvbRh7RUsQHhIRCnB/F2FcGXN CeW95QkBeEBsaGBEKcF8XYEBFX3tFTUR9f0kQHRoRCnBfF25nWX0fG0RIWW8SEB4SEQpwfxdoGU
+ JQe2FoYF9SGRAbHxEKcF8XYF1ZTVsSeUYSSUIQHhIRCnBfF2hrbW1jGmh6fG5PEB4SEQpwfxdtH WRTbFpvZ3t+UBAbGhoRCnBfF20SBXB4b0xLXXkZEB4SEQpwXxdnb05Pa31CE35fYRAHGgQeEhEK cF8Xb0B4Z0RoaR8ZaBIQHhIRCnBfF29FTFMdHkFrZGZbEB4SEQpwXxdpb1JdTEF6XHISHBAeEhE
+ KcF8XaERTHFNHf055GlMQHhIRCnB/F2xvE1B5WB9wbR5oEB0fEQpwXxdmAURJYHlzARNsRxAeEh EKcH8Xa2hZXBNrQ0RnUGUQEhkRCnBfF25AYm1dW0VbQBp4EB4SEQpwXxdoGh5BUkNpbFl+fRAeE hEKcH8XZmZgWmAbHnthTXoQEx4RCnBfF29Qf19wX0Icb14YEBMZEQpwfxdtQ2VkGGZITWF/GhAe
+ HBEKcF8XZWRgaGVJTVtaAW8QGRMRCnB/F2hmfh0FXnBoaH0eEB0TEQpwXxdveBtgThxGGBNoaxA eEhEKcGwXbFxmbR1TcFJiYhgQHhIRCm1+FxoRClhNF0sRIA==
+X-Proofpoint-ORIG-GUID: tO4Ye1jDKmAysBXQ3g5fqGdzZ3LqUgGG
+X-CLX-Shades: MLX
+X-Proofpoint-GUID: tO4Ye1jDKmAysBXQ3g5fqGdzZ3LqUgGG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.895,Hydra:6.0.545,FMLib:17.11.122.1
+ definitions=2022-11-02_15,2022-11-02_01,2022-06-22_01
+X-Proofpoint-Spam-Details: rule=inbound_notspam policy=inbound score=0 phishscore=0 mlxscore=0
+ adultscore=0 impostorscore=0 priorityscore=445 malwarescore=0 bulkscore=13
+ suspectscore=0 clxscore=97 mlxlogscore=999 spamscore=0 lowpriorityscore=13
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2210170000
+ definitions=main-2211030009
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1070148371
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+On November 4th=2C 2021=2C SWC went on our fourth (and final) strike in th=
+ree years to win our first contract.  In honor of our strike-a-versary=2C=
+ join us in a celebration this Friday=2C November 4th=2C 2022 at Grill on=
+ the Hill.  See the flyer below for details.
+
+
+** Workplace Council Updates:
+------------------------------------------------------------
+
+At Tuesday=E2=80=99s Workplace Council meeting=2C we voted on new committe=
+e members and district coordinators.  All nominees were elected to their c=
+ommittees by acclamation.
+
+New Committee Members:
+Communications Committee:
+* Manuela Luengas
+* Caroline Smith
+* Avi Zeff
+* Flor Barcel=C3=B3
+* Jessie Rubin
+* Ruilin Fan
+* Grant Miner
+* Mia Florin-Sefton
+
+Records Committee:
+* Iuri Bauler
+* Rafi Sofaer
+* Han Yong
+* Iris Sybesma
+* Tim Ittner
+* Emmanuel Afriyie
+* Sarah Leonard
+
+Finance Committee:
+* Caitlin Liss
+* Iuri Bauler
+* Avi Zeff
+* Han Yong
+* Tuan Nguyen
+
+Grievance Committee:
+* Gloria HJ Graf
+* Sujoy Bhattacharyya
+* Sadie Bergen
+* Ye-Eun Jeong
+* Alex Jensen
+
+Process Committee:
+* Alex Jensen
+* Sebastian McAteer
+* Julia Bannon
+* Ye-Eun Jeong
+* Charlie Steinman
+
+Education Committee:
+* Suzannah Glickman
+* Katy Habr
+* Dominic Walker
+* Ioanna Kourkoulou
+* Julia Bannon
+* Flor Barcel=C3=B3
+* Johannah King-Slutzky
+* Ruilin Fan
+* Iloe Ariss
+* Mia Florin-Sefton
+* Nadeem Mansour
+
+District Coordinators:
+* GSAS Humanities/Social Sciences
++ Johannah King-Slutzky
++ Tim Ittner
++ Iloe Ariss
+* GSAS Natural Sciences
++ Claire Warner
+* SEAS
++ Rian Chandra
+* Professional Schools
++ Mandi Spishak-Thomas
++ Sujoy Bhattacharyya
+* CUMC/Mailman
++ [Remains open]
+
+Additionally=2C we voted that the Union Management Committee should not be=
+ a standing committee=2C but instead a group of five people elected at the=
+ Workplace Council before a meeting with the University at which their att=
+endance is required.  This approach allows for the five workers selected f=
+or the committee to be the most involved and qualified concerning the issu=
+e at hand.  It is also meant to prevent the creation of corrupt backchanne=
+ls between a standing committee and the University.
+
+The Workplace Council also discussed the ongoing grievance meeting issue (=
+see below for more details)=2C the process of selecting arbitrators=2C and=
+ updates from the Healthcare Working Group.
+
+
+** Didn't receive your ballot for UAW elections?
+------------------------------------------------------------
+Request a replacement today!
+
+This November=2C for the first time in the history of the UAW=2C members w=
+ill directly decide who will lead our union on the International Executive=
+ Board (IEB)=2C the leading instrument of UAW.
+
+If you have not received a ballot in the mail by now (Wednesday=2C October=
+ 26) you can request a replacement ballot at https://uawvote.com/NewReques=
+t.php or by calling 855-433-8683 (their hours are Monday-Friday=2C 8am-8pm=
+=2C and Saturday 9am-5pm). We also request that you send your confirmation=
+ to SWC by email=2C for us to update your information in the UAW member da=
+tabase. Follow these steps:
+
+1. Complete the form to request a replacement ballot;
+2. Copy/paste it into body of email;
+3. Add UNI to top of email so we can locate your file in our system;
+4. Attach PDF of submission or some proof of confirmation;
+5. Send by email to Caitlin Liss (Finance) =2C Iuri Bauler Pereira (Record=
+s) =2C and  Raphael Sofaer (Data Management) =2C with the subject line "Ba=
+llot Request: Contact Information and Confirmation";
+
+Having trouble filling out your form? Consult this model (https://drive.go=
+ogle.com/file/d/1eAjVPzELG49FIDSCDS4IG2fDFVUTZnlv/view) !
+
+Please note that a replacement ballot may take about 7 days to get to you=
+ after you request one=2C and ballots should be returned in the mail by No=
+vember 18 at the latest to ensure they are received by the November 28=2C=
+ 2022 election deadline.
+
+Make sure you participate in these historic elections and have your voice=
+ heard by casting your ballot!
+
+Card Drive Updates
+
+A submission of about 1400 cards was sent to Columbia on Saturday.  Our cu=
+rrent number of cards signed is 1719=2C growing every day toward our goal=
+ of 1800 cards by the end of the Fall.
+Remember that even if you signed a union authorization card before January=
+ 2022=2C you need to sign a new membership card to become a full member of=
+ the Student Workers of Columbia. Reach out to a department organizer to s=
+ign your card in person=2C or sign an online membership card (https://www.=
+studentworkersofcolumbia.com/sign-a-membership-card) .
+
+Don't forget to update your mailing address (https://columbiagradunion.us1=
+3.list-manage.com/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3D5700ba4c5=
+3&e=3D69e95bc469) !
+
+Why Not Send a Letter to the Editor?
+
+Do you have something you=E2=80=99d like to contribute to the Wednesday Wo=
+rker? Whether it=E2=80=99s a gripe=2C correction=2C comment=2C or complime=
+nt we want to hear from you! Send your letters to swc-newsletter@googlegro=
+ups.com (mailto:swc-newsletter@googlegroups.com) .
+Join the Campaign for Open Meetings
+
+The Grievance WG held a planning meeting on Wednesday night to kick off a=
+ campaign against the university=E2=80=99s refusal to engage in good faith=
+ regarding on-going contract violations. Are you a social media guru? Do y=
+ou love direct action? Message us to get involved!
+
+These are our ongoing grievances:
+Fall 2022 Late or Insufficient Payment
+
+At least 43 workers have not received payment for the Fall term.  The Unio=
+n filed a grievance about this on September 21st=2C and will meet with the=
+ University on Zoom (https://us06web.zoom.us/j/89293058563?pwd=3DQnN5dFlmU=
+1dXR3BKU1RkR0crQ1lDQT09) this Friday=2C October 21st at 12 noon.  Join the=
+ SWC caucus at 11 am at this Zoom link (https://us06web.zoom.us/j/87918501=
+342?pwd=3DZTBKZGptUDBGWG4zaDdUYS9wT25XUT09) .
+
+Organizers have also recently found that=2C as far as they know=2C no CA i=
+n Computer Science has been paid this semester.  The Union is planning to=
+ grieve this soon =E2=80=93 stay tuned for updates.
+
+Fall 2022 Total Support / Compensation
+
+Several PhD students in the School of Public Health=2C specifically in the=
+ Department of Epidemiology=2C have received changes to their total suppor=
+t levels that do not comply with the contract.  The Union filed a grievanc=
+e on this on August 31st=2C and will meet with the Universityon Zoom (http=
+s://us06web.zoom.us/j/85940613331?pwd=3DNlhQNVRjdU44V3l4Mzg0OGtHQm13dz09)=
+ next Monday=2C October 24th at 12 noon.
+
+Spring 2022 Hourly Pay in SEAS
+
+The Union will file an Unfair Labor Practice (ULP) against the University=
+ by the end of this month for failing to provide the Union with relevant a=
+nd necessary information needed for us to resolve a grievance filed in Apr=
+il 2022 (reduction in hourly pay for Course Assistants and Graders in SEAS=
+); we=E2=80=99ll also need to decide whether or not we file for arbitratio=
+n to resolve this grievance by either the end of October or first week of=
+ November (i.e.=2C 30 calendar days since the denial of the grievance at S=
+tep Three).
+
+Fall 2022 Zero-Salary Appointments
+
+On October 3rd=2C the University refused to meet in an open forum with the=
+ Union to discuss our grievance concerning zero-salary appointments.  The=
+ Union and the University have been in communication about the issue of op=
+en/closed grievance meetings.  The University=2C adamant that these meetin=
+gs be closed=2C have provided no clear criteria for who should be allowed=
+ into and excluded from these meetings.
+
+Collecting Information for Longer-Term Grievances
+
+Workspace and Materials - If you are a student worker providing instructio=
+nal or research services for the University and you are being denied acces=
+s to workspace=2C desk space=2C facilities=2C equipment=2C materials=2C in=
+ternet access=2C or other network services required for you to perform ass=
+igned duties=2C please reach out to your departmental organizer. This deni=
+al is a violation of Section 1 of the Workspace and Materials Article.
+
+Workweek - If you are a student worker who is expected to provide instruct=
+ional or research services in excess of twenty (20) hours per week over th=
+e course of the semester=2C please maintain a log of the hours you work an=
+d reach out to your departmental organizer. This work expectation is a vio=
+lation of Section 1 of the Workweek Article.
+For links to Zoom meetings=2C see the SWC calendar (https://calendar.googl=
+e.com/calendar/u/0/embed?src=3Dcolumbiagradunion%40gmail.com&ctz=3DAmerica=
+%2FNew_York) .
+THIS WEEK IN SOLIDARITY
+* NYU Adjunct Faculty  (ACT-UAW 7902) have reached a tentative agreement w=
+ith the university administration.  See here (https://twitter.com/UAW7902/=
+status/1587535020889079808?ref_src=3Dtwsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr=
+%5Etweet) for their press release.
+
+* New School Part-Time Faculty (also ACT-UAW 7902) are currently voting on=
+ whether to authorize a strike.  Organizers and New School undergraduates=
+ in solidarity recently held a "Funeral for Progressive Values" (https://w=
+ww.instagram.com/act_uaw7902/?hl=3Den) to protest the New School's treatme=
+nt of the Union.
+
+* Starbucks Workers United at the roastery on the Upper West Side are curr=
+ently on strike.  See the Starbucks Workers United twitter (https://twitte=
+r.com/SBWorkersUnited) for updates=2C and picket times.
+
+* Four UAW Bargaining Units in the UC System held strike-authorization vot=
+es that ended today.  Results should be out very soon.
+
+Graduate Student Action Network
+
+Student workers at Columbia are joining a national graduate movement effor=
+t to organize a walk-out on October 6th for reproductive rights=2C trans r=
+ights=2C bodily autonomy=2C medical privacy and free healthcare.
+
+We are looking for organizers to join us to:
+* prepare the walk-out
+* determine our Columbia-level demands along with other unions on campus
+* coordinate with other New York-based groups (CUNY for abortion rights=2C=
+ NYU GSOC=2C New School SensUAW)
+
+You can join the organizing group at: https://chat.whatsapp.com/FBUct9PXO2=
+tBibWxGopNAX
+
+GSAN will be having a meeting this Friday=2C 9/23 at 5 pm on Zoom (https:/=
+/us06web.zoom.us/meeting/register/tZclduygrTovG9EDQ9D3FslW2l2N8LQYyCm_) .
+
+Keep up the fight for recognition!
+
+The SWC bargaining unit is certified by the National Labor Relations Board=
+ (NLRB) in Case Number: 02-RC-143012 (https://www.nlrb.gov/case/02-RC-1430=
+12) . The unit includes all student workers employed by the University who=
+ provide instructional or research services. The University refuses to rec=
+ognize all student workers in our unit=2C so we are submitting the dispute=
+ for resolution by the National Labor Relations Board (NLRB) by filing a u=
+nit clarification petition this Fall.
+
+The Recognition Working Group needs all union members to take up this figh=
+t to ensure that no student worker is erroneously excluded from our collec=
+tive power and from being afforded the protections and benefits that our c=
+ontract provides. Join us in this fight by reaching out to your department=
+al organizer and contacting us at swc-recognition-wg@googlegroups.com. Sta=
+y tuned for more concrete ways to get involved in this campaign as it inte=
+nsifies.
+
+Join the Grievance Working Group! (form in Contacts)
+
+This month=2C the Grievance Working Group has continued to process grievan=
+ces related to late pay=2C childcare subsidies=2C compensation=2C access t=
+o benefits=2C and appointment letters.
+
+Joining this WG is a fantastic way to get to know the ins and outs of the=
+ protections and benefits our contract provides us- and without enforcemen=
+t mechanisms=2C a contract is just a piece of paper. Join us and work out=
+ your union muscle!
+
+Join the Nondiscrimination and Harassment Working Group
+
+The Nondiscrimination and Harassment (NDH) Working Group supports union me=
+mbers as they file grievances relating to discrimination=2C harassment=2C=
+ bullying=2C and hostile workplace environments on campus. We also connect=
+ members to non-Columbia sources of support=2C accompany members to grieva=
+nce-related meetings upon request=2C and advocate for more robust enforcem=
+ent of SWC's nondiscrimination contract article. We are looking for union=
+ members who would like to take a more active role in advocating for survi=
+vors of discrimination and harassment and currently planning a Fall schedu=
+le of trainings. Join us!
+
+Contact us at swc-ndh-wg@googlegroups.com.
+
+New Data Management Working Group
+
+Raphael Sofaer=2C SEAS steward from Computer Science=2C is looking for mem=
+bers for the new Data Management Working Group!  This is a small group of=
+ union members who work on the technical and design aspects of the union's=
+ data management system.  We take care of the database=2C make sure we can=
+ get our member lists to Columbia and UAW=2C make sure organizers have the=
+ information they need=2C and take in new members.  Programming experience=
+ is not required=2C anyone with a good 'systems thinking' perspective can=
+ contribute.
+
+Contact Raphael at rsofaer@gmail.com (mailto:rsofaer@gmail.com) .
+Working Group Address Book
+
+Recognition Working Group:
+swc-recognition-wg@googlegroups.com (mailto:swc-recognition-wg@googlegroup=
+s.com)
+
+Healthcare Working Group:
+swchealthfund@gmail.com (mailto:swchealthfund@gmail.com)
+
+Communications Committee:
+swc-comms@googlegroups.com (mailto:swc-comms@googlegroups.com)
+
+Non-Discrimination and Harassment Working Group:
+swc-ndh-wg@googlegroups.com (mailto:swc-ndh-wg@googlegroups.com)
+
+Bylaws Working Group:
+swc-bylaws-wg@googlegroups.com (mailto:swc-bylaws-wg@googlegroups.com)
+
+Grievances Working Group=2C Organizers=E2=80=99 Assistance Form:
+https://docs.google.com/forms/d/e/1FAIpQLSdSezlzAECaoVL6an8E39lHbvFuVOjuQg=
+mv7FnAZohw9aZMyw/viewform
+
+Workplace Problem Form:
+https://docs.google.com/forms/d/e/1FAIpQLSfuPzWgghwGaclU8Ph0-AsTzShrXR8fp-=
+koSSyTy5rSvJB2pQ/viewform
+
+Membership Card Drive Campaign:
+https://chat.whatsapp.com/Gv1TVZATryhARq374ZgmrU
+
+Classifieds
+
+WANTED: Picture frames! All shapes and sizes.  Please email cefsteinman@gm=
+ail.com (mailto:cefsteinman@gmail.com) if you have any you'd like to get r=
+id of.
+
+Note from the Wednesday Crew
+
+The Wednesday Worker is the official newsletter of the Student Workers of=
+ Columbia.
+If you=E2=80=99re interested in joining the Wednesday Crew=2C send us an e=
+mail! (mailto:swc-newsletter@googlegroups.com)
+=2E.. and finally=2C your midweek mischief:
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+** Website (https://www.studentworkersofcolumbia.com/)
+** Website (https://www.studentworkersofcolumbia.com/)
+** Email (mailto:swc-newsletter@googlegroups.com)
+** Email (mailto:swc-newsletter@googlegroups.com)
+** Twitter (https://twitter.com/sw_columbia)
+** Twitter (https://twitter.com/sw_columbia)
+** Instagram (https://instagram.com/sw_columbia)
+** Instagram (https://instagram.com/sw_columbia)
+** Discord (https://discord.gg/zbKa6fRQ)
+** Discord (https://discord.gg/zbKa6fRQ)
+Copyright =C2=A9 2022 Student Workers of Columbia=2C All rights reserved.
+ You signed up to receive updates from the Student Workers of Columbia.
+
+Our mailing address is:
+Student Workers of Columbia
+116th St & Broadway
+New York=2C NY 10027
+USA
+Want to change how you receive these emails?
+You can ** update your preferences (https://student-workers-of-columbia.ma=
+ilchimpsites.com/manage/preferences?u=3Dbf112f248486fb48a139e6aa2&id=3D99b=
+5b180ae&e=3D3121083181&c=3D6c2e5d5c51)
+or ** unsubscribe from this list (https://columbiagradunion.us13.list-mana=
+ge.com/unsubscribe?u=3Dbf112f248486fb48a139e6aa2&id=3D99b5b180ae&e=3D3121083181&c=3D6c2e5d5c51)
+=2E
+ Email Marketing Powered by Mailchimp
+http://www.mailchimp.com/email-referral/?utm_source=3Dfreemium_newsletter&=
+utm_medium=3Demail&utm_campaign=3Dreferral_marketing&aid=3Dbf112f248486fb4=
+8a139e6aa2&afl=3D1
+--_----------=_MCPart_1070148371
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: TELL A STORY -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1">
+        <title>SWC News - Nov. 9 2022</title>
+
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cblockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel]=2Ca[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cbody=2Ctable=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass td=2C.ExternalCla=
+ss div=2C.ExternalClass span=2C.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09=09h1{
+=09=09=09color:#222222;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:40px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:150%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:center;
+=09=09}
+=09=09h2{
+=09=09=09color:#222222;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:34px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:150%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#444444;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:22px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:150%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#949494;
+=09=09=09font-family:Georgia;
+=09=09=09font-size:20px;
+=09=09=09font-style:italic;
+=09=09=09font-weight:normal;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#f7f7f7;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:50% 50%;
+=09=09=09background-size:contain;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:12px;
+=09=09=09padding-bottom:12px;
+=09=09}
+=09=09.headerContainer{
+=09=09=09background-color:#transparent;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0;
+=09=09=09padding-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#757575;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a=2C.headerContainer .mcnTextConten=
+t p a{
+=09=09=09color:#007C89;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:50% 50%;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:27px;
+=09=09=09padding-bottom:54px;
+=09=09}
+=09=09.bodyContainer{
+=09=09=09background-color:transparent;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0;
+=09=09=09padding-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#757575;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a=2C.bodyContainer .mcnTextContent p=
+ a{
+=09=09=09color:#007C89;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#333333;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:45px;
+=09=09=09padding-bottom:63px;
+=09=09}
+=09=09.footerContainer{
+=09=09=09background-color:transparent;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0;
+=09=09=09padding-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#FFFFFF;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:center;
+=09=09}
+=09=09.footerContainer .mcnTextContent a=2C.footerContainer .mcnTextConten=
+t p a{
+=09=09=09color:#FFFFFF;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer=2C.mcnCaptionTopContent=2C.mcnRecContentContainer=
+=2C.mcnCaptionBottomContent=2C.mcnTextContentContainer=2C.mcnBoxedTextCont=
+entContainer=2C.mcnImageGroupContentContainer=2C.mcnCaptionLeftTextContent=
+Container=2C.mcnCaptionRightTextContentContainer=2C.mcnCaptionLeftImageCon=
+tentContainer=2C.mcnCaptionRightImageContentContainer=2C.mcnImageCardLeftT=
+extContentContainer=2C.mcnImageCardRightTextContentContainer=2C.mcnImageCa=
+rdLeftImageContentContainer=2C.mcnImageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent=2C.mcnCaptionRightConten=
+tOuter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent=2C.mcnCaptionBottomContent:last-child .=
+mcnCaptionBottomImageContent=2C.mcnCaptionBlockInner .mcnCaptionTopContent=
+:last-child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent=2C.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent=2C.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:30px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:26px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer .mcnTextContent=2C.mcnBoxedTextContent=
+Container .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}</style><!--[if !mso]><!--><link href=3D"https://fonts.googleapis.com/cs=
+s?family=3DPlayfair+Display:400=2C400i=2C700=2C700i" rel=3D"stylesheet"><!=
+--<![endif]--></head>
+    <body style=3D"height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;pad=
+ding: 0;width: 100%;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"=
+templateHeader" data-template-container=3D"" style=3D"background:#f7f7f7 n=
+one no-repeat 50% 50%/contain;mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #f7f7f7;back=
+ground-image: none;background-repeat: no-repeat;background-position: 50% 5=
+0%;background-size: contain;border-top: 0;border-bottom: 0;padding-top: 12=
+px;padding-bottom: 12px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wi=
+dth=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContain=
+er" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-wid=
+th: 600px !important;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"background:#transparent none no-repeat center/cove=
+r;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-si=
+ze-adjust: 100%;background-color: #transparent;background-image: none;back=
+ground-repeat: no-repeat;background-position: center;background-size: cove=
+r;border-top: 0;border-bottom: 0;padding-top: 0;padding-bottom: 0;"><table=
+ class=3D"mcnImageBlock" style=3D"min-width: 100%;border-collapse: collaps=
+e;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 0px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 0px;padding-left: 0px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/acab8c29-9c48-18db-7c45-ba6c=
+ed4a8128.jpg" style=3D"max-width: 734px;padding-bottom: 0;display: inline=
+ !important;vertical-align: bottom;border: 0;height: auto;outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage" w=
+idth=3D"600" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"=
+templateBody" data-template-container=3D"" style=3D"background:#FFFFFF non=
+e no-repeat 50% 50%/cover;mso-line-height-rule: exactly;-ms-text-size-adju=
+st: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;backgrou=
+nd-image: none;background-repeat: no-repeat;background-position: 50% 50%;b=
+ackground-size: cover;border-top: 0;border-bottom: 0;padding-top: 27px;pad=
+ding-bottom: 54px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wi=
+dth=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContain=
+er" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-wid=
+th: 600px !important;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"background:transparent none no-repeat center/cover;m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;background-color: transparent;background-image: none;backgrou=
+nd-repeat: no-repeat;background-position: center;background-size: cover;bo=
+rder-top: 0;border-bottom: 0;padding-top: 0;padding-bottom: 0;"><table cla=
+ss=3D"mcnImageBlock" style=3D"min-width: 100%;border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/608f3ed0-c2f6-8e7e-b6a2-4546=
+d6c5e56b.png" style=3D"max-width: 600px;padding-bottom: 0;display: inline=
+ !important;vertical-align: bottom;border: 0;height: auto;outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage" w=
+idth=3D"564" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 14px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+                            On November 4th=2C 2021=2C SWC went on our fou=
+rth (and final) strike in three years to win our first contract.&nbsp; In=
+ honor of our strike-a-versary=2C join us in a celebration this Friday=2C=
+ November 4th=2C 2022 at Grill on the Hill.&nbsp; See the flyer below for=
+ details.<br>
+&nbsp;
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageBlock" style=3D"min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/c2317cfb-e3db-386e-53ad-b5fc=
+659ddfdc.jpeg" style=3D"max-width: 1080px;padding-bottom: 0;display: inlin=
+e !important;vertical-align: bottom;border: 0;height: auto;outline: none;t=
+ext-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage"=
+ width=3D"564" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td class=3D"mcnBoxedTextBlockInner" valign=3D"top" style=3D"m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table style=3D"min-width: 100%;border-collapse: collapse;=
+mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-t=
+ext-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table class=3D"mcnTextContentContainer" style=
+=3D"min-width: 100% !important;background-color: #5F718C;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" b=
+order=3D"0">
+                                <tbody><tr>
+                                    <td class=3D"mcnTextContent" style=3D"=
+padding: 18px;color: #F2F2F2;font-family: &quot;Playfair Display&quot;=2C=
+ Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 14px;font-weig=
+ht: normal;text-align: left;mso-line-height-rule: exactly;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-heig=
+ht: 150%;" valign=3D"top">
+                                        <h1 class=3D"null" style=3D"displa=
+y: block;margin: 0;padding: 0;color: #222222;font-family: Helvetica;font-s=
+ize: 40px;font-style: normal;font-weight: bold;line-height: 150%;letter-sp=
+acing: normal;text-align: center;"><span style=3D"color:#FFFFFF"><span sty=
+le=3D"font-family:playfair display=2Cgeorgia=2Ctimes new roman=2Cserif">Wo=
+rkplace Council Updates:</span></span></h1>
+
+<div style=3D"text-align: center;">
+<div>
+<p dir=3D"ltr" style=3D"text-align: left;color: #F2F2F2;font-family: &quot=
+;Playfair Display&quot;=2C Georgia=2C &quot;Times New Roman&quot;=2C serif=
+;font-size: 14px;font-weight: normal;margin: 10px 0;padding: 0;mso-line-he=
+ight-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;line-height: 150%;">At Tuesday=E2=80=99s Workplace Council meeting=2C w=
+e voted on new committee members and district coordinators.&nbsp; All nomi=
+nees were elected to their committees by acclamation.<br>
+<br>
+<span style=3D"color:#FFFFFF"><span style=3D"font-family:playfair display=
+=2Cgeorgia=2Ctimes new roman=2Cserif"><span style=3D"font-size:24px">New C=
+ommittee Members:</span></span></span></p>
+
+<div style=3D"text-align: left;"><strong>Communications Committee:</strong=
+></div>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Manuela Luengas</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Caroline Smith</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Avi Zeff</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Flor&nbsp;Barcel=C3=B3</l=
+i>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Jessie Rubin</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Ruilin Fan</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Grant Miner</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Mia Florin-Sefton</li>
+</ul>
+
+<div style=3D"text-align: left;"><strong>Records Committee:&nbsp;</strong>=
+</div>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Iuri Bauler</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Rafi Sofaer&nbsp;</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Han Yong</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Iris Sybesma</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Tim Ittner</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Emmanuel Afriyie&nbsp;</l=
+i>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Sarah Leonard&nbsp;</li>
+</ul>
+
+<div style=3D"text-align: left;"><strong>Finance Committee:</strong></div>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Caitlin Liss</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Iuri Bauler</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Avi Zeff</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Han Yong</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Tuan Nguyen</li>
+</ul>
+
+<div style=3D"text-align: left;"><strong>Grievance Committee:</strong></di=
+v>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Gloria HJ Graf</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Sujoy Bhattacharyya</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Sadie Bergen</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Ye-Eun Jeong</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Alex Jensen</li>
+</ul>
+
+<div style=3D"text-align: left;"><strong>Process Committee:</strong></div>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Alex Jensen</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Sebastian McAteer</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Julia Bannon</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Ye-Eun Jeong</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Charlie Steinman</li>
+</ul>
+
+<div style=3D"text-align: left;"><strong>Education Committee:</strong></di=
+v>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Suzannah Glickman</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Katy Habr</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Dominic Walker</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Ioanna Kourkoulou</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Julia Bannon</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Flor Barcel=C3=B3</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Johannah King-Slutzky</li=
+>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Ruilin Fan</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Iloe Ariss</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Mia Florin-Sefton</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">Nadeem Mansour</li>
+</ul>
+
+<div style=3D"text-align: left;"><strong>District Coordinators:</strong></=
+div>
+
+<ul>
+=09<li aria-level=3D"1" dir=3D"ltr" style=3D"text-align: left;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">GSAS Humanities/Social Sciences
+=09<ul>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Johan=
+nah King-Slutzky</li>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Tim I=
+ttner</li>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Iloe=
+ Ariss</li>
+=09</ul>
+=09</li>
+=09<li aria-level=3D"1" dir=3D"ltr" style=3D"text-align: left;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">GSAS Natural Sciences
+=09<ul>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Clair=
+e Warner</li>
+=09</ul>
+=09</li>
+=09<li aria-level=3D"1" dir=3D"ltr" style=3D"text-align: left;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">SEAS
+=09<ul>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Rian=
+ Chandra&nbsp;</li>
+=09</ul>
+=09</li>
+=09<li aria-level=3D"1" dir=3D"ltr" style=3D"text-align: left;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">Professional Schools
+=09<ul>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Mandi=
+ Spishak-Thomas&nbsp;</li>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Sujoy=
+ Bhattacharyya</li>
+=09</ul>
+=09</li>
+=09<li aria-level=3D"1" dir=3D"ltr" style=3D"text-align: left;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">CUMC/Mailman&nbsp;
+=09<ul>
+=09=09<li aria-level=3D"2" style=3D"text-align: left;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">[Rem=
+ains open]</li>
+=09</ul>
+=09</li>
+</ul>
+
+<p dir=3D"ltr" style=3D"text-align: left;color: #F2F2F2;font-family: &quot=
+;Playfair Display&quot;=2C Georgia=2C &quot;Times New Roman&quot;=2C serif=
+;font-size: 14px;font-weight: normal;margin: 10px 0;padding: 0;mso-line-he=
+ight-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;line-height: 150%;">Additionally=2C we voted that the Union Management=
+ Committee should not be a standing committee=2C but instead a group of fi=
+ve people elected at the Workplace Council before a meeting with the Unive=
+rsity at which their attendance is required.&nbsp; This approach allows fo=
+r the five workers selected for the committee to be the most involved and=
+ qualified concerning the issue at hand.&nbsp; It is also meant to prevent=
+ the creation of corrupt backchannels between a standing committee and the=
+ University.&nbsp;<br>
+<br>
+The Workplace Council also discussed the ongoing grievance meeting issue (=
+see below for more details)=2C the process of selecting arbitrators=2C and=
+ updates from the Healthcare Working Group.</p>
+</div>
+</div>
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageBlock" style=3D"min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/b7bb68e3-3d23-2b1a-4693-4ed3=
+c844ed3b.png" style=3D"max-width: 1250px;padding-bottom: 0;display: inline=
+ !important;vertical-align: bottom;border: 0;height: auto;outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage" w=
+idth=3D"564" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table class=3D"mcnCodeBlock" width=3D"100%" cellspacing=3D"0" cel=
+lpadding=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" valign=3D"top" style=3D"mso-li=
+ne-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%;">
+                <table class=3D"mcnBoxedTextBlock" style=3D"min-width: 100=
+%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0"><!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+=09=09<tr>
+=09=09=09<td class=3D"mcnBoxedTextBlockInner" style=3D"mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" val=
+ign=3D"top"><!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+=09=09=09<table class=3D"mcnBoxedTextContentContainer" style=3D"min-width:=
+ 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+=09=09=09=09<tbody>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td style=3D"padding-top: 9px;padding-left: 18px;padding=
+-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;">
+=09=09=09=09=09=09<table class=3D"mcnTextContentContainer" style=3D"min-wi=
+dth: 100% !important;background-color: #5F718C;border-collapse: collapse;m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" border=3D"0"=
+>
+=09=09=09=09=09=09=09<tbody>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"mcnTextContent" style=3D"padding:=
+ 18px;color: #F2F2F2;font-family: &quot;Playfair Display&quot;=2C Georgia=
+=2C &quot;Times New Roman&quot;=2C serif;font-size: 14px;font-weight: norm=
+al;text-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height: 150%=
+;" valign=3D"top">
+=09=09=09=09=09=09=09=09=09<h1 class=3D"null" style=3D"display: block;marg=
+in: 0;padding: 0;color: #222222;font-family: Helvetica;font-size: 40px;fon=
+t-style: normal;font-weight: bold;line-height: 150%;letter-spacing: normal=
+;text-align: center;"><span style=3D"color:#FFFFFF"><span style=3D"font-fa=
+mily:playfair display=2Cgeorgia=2Ctimes new roman=2Cserif">Didn't receive=
+ your ballot for UAW elections?</span></span></h1>
+
+=09=09=09=09=09=09=09=09=09<div style=3D"text-align: center;"><br>
+=09=09=09=09=09=09=09=09=09<span style=3D"font-family:playfair display=2Cg=
+eorgia=2Ctimes new roman=2Cserif"><span style=3D"font-size:26px">Request a=
+ replacement today!</span></span><br>
+=09=09=09=09=09=09=09=09=09&nbsp;</div>
+
+=09=09=09=09=09=09=09=09=09<div style=3D"text-align: center;">
+=09=09=09=09=09=09=09=09=09<div>
+=09=09=09=09=09=09=09=09=09<p dir=3D"ltr" style=3D"text-align: left;color:=
+ #F2F2F2;font-family: &quot;Playfair Display&quot;=2C Georgia=2C &quot;Tim=
+es New Roman&quot;=2C serif;font-size: 14px;font-weight: normal;margin: 10=
+px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;line-height: 150%;">This November=2C for the=
+ first time in the history of the UAW=2C members will directly decide who=
+ will lead our union on the International Executive Board (IEB)=2C the lea=
+ding instrument of UAW.<br>
+=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09If you have not received a ballot in the mail b=
+y now (Wednesday=2C October 26) you can request a replacement ballot at <a=
+ href=3D"https://columbiagradunion.us13.list-manage.com/track/click?u=3Dbf=
+112f248486fb48a139e6aa2&id=3Dd53fabed62&e=3D3121083181" style=3D"mso-line=
+-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #007C89;font-weight: normal;text-decoration: underline;"><spa=
+n style=3D"color:#a3a3ff">https://uawvote.com/NewRequest.php</span></a> or=
+ by calling 855-433-8683 (their hours are Monday-Friday=2C 8am-8pm=2C and=
+ Saturday 9am-5pm). We also request that you send your confirmation to SWC=
+ by email=2C for us to update your information in the UAW member database.=
+ Follow these steps:<br>
+=09=09=09=09=09=09=09=09=09&nbsp;</p>
+
+=09=09=09=09=09=09=09=09=09<ol style=3D"list-style-type:decimal;">
+=09=09=09=09=09=09=09=09=09=09<li aria-level=3D"1" dir=3D"ltr" style=3D"te=
+xt-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">Complete the form to request a replacement=
+ ballot;</li>
+=09=09=09=09=09=09=09=09=09=09<li aria-level=3D"1" dir=3D"ltr" style=3D"te=
+xt-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">Copy/paste it into body of email;</li>
+=09=09=09=09=09=09=09=09=09=09<li aria-level=3D"1" dir=3D"ltr" style=3D"te=
+xt-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">Add UNI to top of email so we can locate yo=
+ur file in our system;</li>
+=09=09=09=09=09=09=09=09=09=09<li aria-level=3D"1" dir=3D"ltr" style=3D"te=
+xt-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">Attach PDF of submission or some proof of c=
+onfirmation;</li>
+=09=09=09=09=09=09=09=09=09=09<li aria-level=3D"1" dir=3D"ltr" style=3D"te=
+xt-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">Send by email to Caitlin Liss (Finance) &lt=
+;<a href=3D"mailto:caitlinliss@gmail.com" style=3D"mso-line-height-rule: e=
+xactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #0=
+07C89;font-weight: normal;text-decoration: underline;"><span style=3D"colo=
+r:#a3a3ff">caitlinliss@gmail.com</span></a>&gt;=2C Iuri Bauler Pereira (Re=
+cords) &lt;<a href=3D"mailto:iuribauler@gmail.com" style=3D"mso-line-heigh=
+t-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+color: #007C89;font-weight: normal;text-decoration: underline;"><span styl=
+e=3D"color:#a3a3ff">iuribauler@gmail.com</span></a>&gt; =2C and&nbsp; Raph=
+ael Sofaer (Data Management) &lt;<a href=3D"mailto:rsofaer@gmail.com" styl=
+e=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: und=
+erline;"><span style=3D"color:#a3a3ff">rsofaer@gmail.com</span></a>&gt;=2C=
+ with the subject line "Ballot Request: Contact Information and Confirmati=
+on";</li>
+=09=09=09=09=09=09=09=09=09</ol>
+
+=09=09=09=09=09=09=09=09=09<p dir=3D"ltr" style=3D"text-align: left;color:=
+ #F2F2F2;font-family: &quot;Playfair Display&quot;=2C Georgia=2C &quot;Tim=
+es New Roman&quot;=2C serif;font-size: 14px;font-weight: normal;margin: 10=
+px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;line-height: 150%;"><br>
+=09=09=09=09=09=09=09=09=09Having trouble filling out your form? Consult <=
+a href=3D"https://columbiagradunion.us13.list-manage.com/track/click?u=3Db=
+f112f248486fb48a139e6aa2&id=3D4a20b24974&e=3D3121083181" style=3D"mso-lin=
+e-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;color: #007C89;font-weight: normal;text-decoration: underline;"><sp=
+an style=3D"color:#a3a3ff">this model</span></a>!<br>
+=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09<strong>Please note that a replacement ballot m=
+ay take about 7 days to get to you after you request one=2C and ballots sh=
+ould be returned in the mail by November 18 at the latest to ensure they a=
+re received by the November 28=2C 2022 election deadline.</strong><br>
+=09=09=09=09=09=09=09=09=09<br>
+=09=09=09=09=09=09=09=09=09Make sure you participate in these historic ele=
+ctions and have your voice heard by casting your ballot!</p>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09</div>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</tbody>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</tbody>
+=09=09=09</table>
+=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]--><!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]--></td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+                            <p style=3D"text-align: center;color: #222222;=
+font-family: &quot;Playfair Display&quot;=2C Georgia=2C &quot;Times New Ro=
+man&quot;=2C serif;font-size: 12px;line-height: 150%;margin: 10px 0;paddin=
+g: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;"><span style=3D"font-size:32px"><strong><span style=3D=
+"color:#000000">Card Drive Updates</span></strong></span></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+                            <p dir=3D"ltr" id=3D"docs-internal-guid-3f7bc9=
+2b-7fff-a542-9da1-d09e668ed478" style=3D"line-height: 150%;margin-top: 0pt=
+;margin-bottom: 0pt;color: #222222;font-family: &quot;Playfair Display&quo=
+t;=2C Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;marg=
+in: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;text-align: left;"><span style=3D"fon=
+t-size:14px">A submission of about 1400 cards was sent to Columbia on Satu=
+rday.&nbsp; <span style=3D"background-color: transparent;color: #000000;fo=
+nt-style: normal;font-variant: normal;font-weight: 400;text-decoration: no=
+ne;vertical-align: baseline;white-space: pre-wrap;">Our current number of=
+ cards signed is <u><strong>1719</strong></u>=2C growing every day toward=
+ our goal of 1800 cards by the end of the Fall.&nbsp;</span></span></p>
+<br>
+<span style=3D"font-size:14px"><span style=3D"background-color: transparen=
+t;color: #000000;font-style: normal;font-variant: normal;font-weight: 400;=
+text-decoration: none;vertical-align: baseline;white-space: pre-wrap;">Rem=
+ember that even if you signed a union authorization card before January 20=
+22=2C you need to sign a new membership card to become a full member of th=
+e Student Workers of Columbia. Reach out to a department organizer to sign=
+ your card in person=2C or sign an <a href=3D"https://columbiagradunion.us=
+13.list-manage.com/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3Dfce112ce=
+2f&e=3D3121083181" target=3D"_blank" style=3D"mso-line-height-rule: exact=
+ly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C8=
+9;font-weight: normal;text-decoration: underline;">online membership card<=
+/a>.</span><br>
+<br>
+Don't forget to <a href=3D"https://columbiagradunion.us13.list-manage.com/=
+track/click?u=3Dbf112f248486fb48a139e6aa2&id=3D97b0cbc6af&e=3D3121083181"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration=
+: underline;">update your mailing address</a>!</span><br>
+&nbsp;
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageBlock" style=3D"min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/a3cf2758-268d-4d63-8dd1-6747=
+9c86faec.png" style=3D"max-width: 639px;padding-bottom: 0;display: inline=
+ !important;vertical-align: bottom;border: 0;height: auto;outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnRetinaIm=
+age" width=3D"319.5" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td class=3D"mcnBoxedTextBlockInner" valign=3D"top" style=3D"m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table style=3D"min-width: 100%;border-collapse: collapse;=
+mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-t=
+ext-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table class=3D"mcnTextContentContainer" style=
+=3D"min-width: 100% !important;background-color: #5F718C;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" b=
+order=3D"0">
+                                <tbody><tr>
+                                    <td class=3D"mcnTextContent" style=3D"=
+padding: 18px;color: #F2F2F2;font-family: &quot;Playfair Display&quot;=2C=
+ Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 14px;font-weig=
+ht: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-he=
+ight: 150%;" valign=3D"top">
+                                        <p style=3D"text-align: center;col=
+or: #F2F2F2;font-family: &quot;Playfair Display&quot;=2C Georgia=2C &quot;=
+Times New Roman&quot;=2C serif;font-size: 14px;font-weight: normal;margin:=
+ 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;line-height: 150%;"><span style=3D"font-f=
+amily:playfair display=2Cgeorgia=2Ctimes new roman=2Cserif"><span style=3D=
+"font-size:28px"><strong>Why Not Send a Letter to the Editor?</strong></sp=
+an></span><br>
+&nbsp;</p>
+
+<div style=3D"text-align: left;">Do you have something you=E2=80=99d like=
+ to contribute to the Wednesday Worker? Whether it=E2=80=99s a gripe=2C co=
+rrection=2C comment=2C or compliment we want to hear from you! Send your l=
+etters to <a href=3D"mailto:swc-newsletter@googlegroups.com" target=3D"_bl=
+ank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decora=
+tion: underline;"><span style=3D"color:#a3a3ff">swc-newsletter@googlegroup=
+s.com</span></a><span style=3D"color:#a3a3ff">.</span></div>
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageCardBlock" width=3D"100%" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+    <tbody class=3D"mcnImageCardBlockOuter">
+        <tr>
+            <td class=3D"mcnImageCardBlockInner" style=3D"padding-top: 9px=
+;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-heigh=
+t-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+" valign=3D"top">
+
+<table class=3D"mcnImageCardBottomContent" style=3D"background-color: #FFF=
+FFF;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;=
+-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%"=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+    <tbody><tr>
+        <td class=3D"mcnImageCardBottomImageContent" style=3D"padding-top:=
+ 0px;padding-right: 0px;padding-bottom: 0;padding-left: 0px;mso-line-heigh=
+t-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+" valign=3D"top" align=3D"left">
+
+
+
+            <img alt=3D"" src=3D"https://mcusercontent.com/bf112f248486fb4=
+8a139e6aa2/images/3a9139cf-3072-3cd9-ac9c-e6b7b57f5d78.png" style=3D"max-w=
+idth: 901px;border: 1px none #222222;border-radius: 0%;height: auto;outlin=
+e: none;text-decoration: none;-ms-interpolation-mode: bicubic;vertical-ali=
+gn: bottom;" class=3D"mcnImage" width=3D"564">
+
+
+        </td>
+    </tr>
+    <tr>
+        <td class=3D"mcnTextContent" style=3D"padding: 9px 18px;color: #00=
+0000;font-family: Helvetica;font-size: 14px;font-weight: normal;text-align=
+: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;word-break: break-word;line-height: 150%;" width=3D=
+"546" valign=3D"top">
+            <div style=3D"text-align: left;"><br>
+<strong><span style=3D"font-size:24px"><span style=3D"font-family:playfair=
+ display=2Cgeorgia=2Ctimes new roman=2Cserif">Join the Campaign for Open M=
+eetings</span></span></strong><br>
+<br>
+<span style=3D"font-size:14px"><span style=3D"font-family:playfair display=
+=2Cgeorgia=2Ctimes new roman=2Cserif">The Grievance WG held a planning mee=
+ting on Wednesday night to kick off a campaign against the university=E2=
+=80=99s refusal to engage in good faith regarding on-going contract violat=
+ions. Are you a social media guru? Do you love direct action? Message us t=
+o get involved!</span></span></div>
+
+<div style=3D"text-align: center;"><br>
+<br>
+<em><span style=3D"font-family:playfair display=2Cgeorgia=2Ctimes new roma=
+n=2Cserif">These are our ongoing grievances: </span></em></div>
+
+<div style=3D"text-align: left;"><br>
+<span style=3D"font-family:playfair display=2Cgeorgia=2Ctimes new roman=2C=
+serif"><span style=3D"font-size:18px"><strong>Fall 2022 Late or Insufficie=
+nt Payment</strong></span><br>
+<br>
+At least 43 workers have not received payment for the Fall term.&nbsp; The=
+ Union filed a grievance about this on September 21st=2C and will meet wit=
+h the University <a href=3D"https://columbiagradunion.us13.list-manage.com=
+/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3Dcce5cc9c92&e=3D3121083181=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoratio=
+n: underline;">on Zoom</a> this Friday=2C October 21st at 12 noon.&nbsp; J=
+oin the SWC caucus at 11 am <a href=3D"https://columbiagradunion.us13.list=
+-manage.com/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3D6b6500660b&e=3D=
+3121083181" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal;te=
+xt-decoration: underline;">at this Zoom link</a>.&nbsp;<br>
+<br>
+Organizers have also recently found that=2C as far as they know=2C no CA i=
+n Computer Science has been paid this semester.&nbsp; The Union is plannin=
+g to grieve this soon =E2=80=93 stay tuned for updates.&nbsp;<br>
+<br>
+<span style=3D"font-size:18px"><strong>Fall 2022 Total Support / Compensat=
+ion</strong></span><br>
+<br>
+Several PhD students in the School of Public Health=2C specifically in the=
+ Department of Epidemiology=2C have received changes to their total suppor=
+t levels that do not comply with the contract.&nbsp; The Union filed a gri=
+evance on this on August 31st=2C and will meet with the University<a href=
+=3D"https://columbiagradunion.us13.list-manage.com/track/click?u=3Dbf112f2=
+48486fb48a139e6aa2&id=3D66cecfa399&e=3D3121083181" style=3D"mso-line-heig=
+ht-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;color: #007C89;font-weight: normal;text-decoration: underline;"> on Zoom<=
+/a> next Monday=2C October 24th at 12 noon.&nbsp;&nbsp;<br>
+<br>
+<strong><span style=3D"font-size:18px">Spring 2022 Hourly Pay in SEAS</spa=
+n></strong><br>
+<br>
+The Union will file an Unfair Labor Practice (ULP) against the University=
+ by the end of this month for failing to provide the Union with relevant a=
+nd necessary information needed for us to resolve a grievance filed in Apr=
+il 2022 (reduction in hourly pay for Course Assistants and Graders in SEAS=
+); we=E2=80=99ll also need to decide whether or not we file for arbitratio=
+n to resolve this grievance by either the end of October or first week of=
+ November (i.e.=2C 30 calendar days since the denial of the grievance at S=
+tep Three).<br>
+<br>
+<span style=3D"font-size:18px"><strong>Fall 2022 Zero-Salary Appointments<=
+/strong></span><br>
+<br>
+On October 3rd=2C the University refused to meet in an open forum with the=
+ Union to discuss our grievance concerning zero-salary appointments.&nbsp;=
+ The Union and the University have been in communication about the issue o=
+f open/closed grievance meetings.&nbsp; The University=2C adamant that the=
+se meetings be closed=2C have provided no clear criteria for who should be=
+ allowed into and excluded from these meetings.<br>
+<br>
+<span style=3D"font-size:18px"><strong>Collecting Information for Longer-T=
+erm Grievances</strong></span><br>
+<br>
+<strong>Workspace and Materials </strong>- If you are a student worker pro=
+viding instructional or research services for the University and you are b=
+eing denied access to workspace=2C desk space=2C facilities=2C equipment=
+=2C materials=2C internet access=2C or other network services required for=
+ you to perform assigned duties=2C please reach out to your departmental o=
+rganizer. This denial is a violation of Section 1 of the Workspace and Mat=
+erials Article.<br>
+<br>
+<strong>Workweek </strong>- If you are a student worker who is expected to=
+ provide instructional or research services in excess of twenty (20) hours=
+ per week over the course of the semester=2C please maintain a log of the=
+ hours you work and reach out to your departmental organizer. This work ex=
+pectation is a violation of Section 1 of the Workweek Article.</span></div=
+>
+
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageBlock" style=3D"min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/c50a13a4-52a9-d028-ae33-2eb2=
+3cb7f028.png" style=3D"max-width: 1080px;padding-bottom: 0;display: inline=
+ !important;vertical-align: bottom;border: 0;height: auto;outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage" w=
+idth=3D"564" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;line-height: 100%;mso-line-height-rule: exactly;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #7=
+57575;font-family: Helvetica;font-size: 16px;text-align: left;" valign=3D"=
+top">
+
+                            <div style=3D"text-align: right;"><span style=
+=3D"font-size:12px">For links to Zoom meetings=2C see the <a href=3D"https=
+://columbiagradunion.us13.list-manage.com/track/click?u=3Dbf112f248486fb48=
+a139e6aa2&id=3D72f3ca553d&e=3D3121083181" target=3D"_blank" style=3D"mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">=
+SWC calendar</a>.</span></div>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td class=3D"mcnBoxedTextBlockInner" valign=3D"top" style=3D"m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table style=3D"min-width: 100%;border-collapse: collapse;=
+mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-t=
+ext-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table class=3D"mcnTextContentContainer" style=
+=3D"min-width: 100% !important;background-color: #5F718C;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" b=
+order=3D"0">
+                                <tbody><tr>
+                                    <td class=3D"mcnTextContent" style=3D"=
+padding: 18px;color: #F2F2F2;font-family: &quot;Playfair Display&quot;=2C=
+ Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 14px;font-weig=
+ht: normal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-he=
+ight: 150%;" valign=3D"top">
+                                        <div style=3D"text-align: center;"=
+><span style=3D"font-size:28px"><strong><em>THIS WEEK IN SOLIDARITY</em></=
+strong></span></div>
+
+<ul>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;"><strong>NYU Adjunct Facul=
+ty&nbsp; </strong>(ACT-UAW 7902) have reached a tentative agreement with t=
+he university administration.&nbsp; See <a style=3D"color: #a3a3ff;mso-lin=
+e-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;font-weight: normal;text-decoration: underline;" href=3D"https://co=
+lumbiagradunion.us13.list-manage.com/track/click?u=3Dbf112f248486fb48a139e=
+6aa2&id=3D02e98cb091&e=3D3121083181" target=3D"_blank">here</a> for their=
+ press release.<br>
+=09&nbsp;</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;"><strong>New School Part-T=
+ime Faculty </strong>(also ACT-UAW 7902) are currently voting on whether t=
+o authorize a strike.&nbsp; Organizers and New School undergraduates in so=
+lidarity recently held a <a href=3D"https://columbiagradunion.us13.list-ma=
+nage.com/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3Ddb1405edfe&e=3D3121083181" style=3D"color: #a3a3ff;mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;font-weight: normal;text-d=
+ecoration: underline;" target=3D"_blank">"Funeral for Progressive Values"<=
+/a> to protest the New School's treatment of the Union.&nbsp;<br>
+=09&nbsp;</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;"><strong>Starbucks Workers=
+ United </strong>at the roastery on the Upper West Side are currently on s=
+trike.&nbsp; See the <a href=3D"https://columbiagradunion.us13.list-manage=
+=2Ecom/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3D05c27b7fec&e=3D3121083181" style=3D"color: #a3a3ff;mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;font-weight: normal;text-decor=
+ation: underline;" target=3D"_blank">Starbucks Workers United twitter </a>=
+for updates=2C and picket times.<br>
+=09&nbsp;</li>
+=09<li style=3D"text-align: left;mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;"><strong>Four UAW Bargaini=
+ng Units in the UC System </strong>held strike-authorization votes that en=
+ded today.&nbsp; Results should be out very soon.</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageBlock" style=3D"min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/fbb8ef45-b043-c659-d088-563e=
+912fd419.png" style=3D"max-width: 600px;padding-bottom: 0;display: inline=
+ !important;vertical-align: bottom;border: 0;height: auto;outline: none;te=
+xt-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage" w=
+idth=3D"564" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+                            <p dir=3D"ltr" role=3D"presentation" style=3D"=
+color: #222222;font-family: &quot;Playfair Display&quot;=2C Georgia=2C &qu=
+ot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 150%;margin=
+: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;text-align: left;"><span style=3D"font-s=
+ize:20px"><strong id=3D"docs-internal-guid-28e4722b-7fff-620e-1d46-ae21b1e=
+51d43">Graduate Student Action Network</strong></span><br>
+<br>
+<span style=3D"font-size:14px">Student workers at Columbia are joining a n=
+ational graduate movement effort to organize a walk-out on October 6th for=
+ reproductive rights=2C trans rights=2C bodily autonomy=2C medical privacy=
+ and free healthcare.</span></p>
+
+<p dir=3D"ltr" style=3D"color: #222222;font-family: &quot;Playfair Display=
+&quot;=2C Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;=
+line-height: 150%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;=
+-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left=
+;"><span style=3D"font-size:14px"><strong id=3D"docs-internal-guid-99e8717=
+4-7fff-f181-b50a-b2b2697d6e73">We are looking for organizers to join us to=
+:</strong></span></p>
+
+<ul dir=3D"ltr">
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><span style=3D"font-size:14px">prepare the=
+ walk-out</span></li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><span style=3D"font-size:14px">determine o=
+ur Columbia-level demands along with other unions on campus</span></li>
+=09<li style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;"><span style=3D"font-size:14px">coordinate=
+ with other New York-based groups (CUNY for abortion rights=2C NYU GSOC=2C=
+ New School SensUAW)</span></li>
+</ul>
+
+<p dir=3D"ltr" style=3D"color: #222222;font-family: &quot;Playfair Display=
+&quot;=2C Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;=
+line-height: 150%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;=
+-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left=
+;"><span style=3D"font-size:14px"><strong>You can join the organizing grou=
+p at: <a href=3D"https://columbiagradunion.us13.list-manage.com/track/clic=
+k?u=3Dbf112f248486fb48a139e6aa2&id=3D1751a0cfb4&e=3D3121083181" style=3D"=
+mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underlin=
+e;">https://chat.whatsapp.com/FBUct9PXO2tBibWxGopNAX</a></strong></span><b=
+r>
+<br>
+<span style=3D"font-size:14px"><span id=3D"docs-internal-guid-f6ab2851-7ff=
+f-0466-da0e-3954d6cf06ef">GSAN will be having a meeting </span><strong>thi=
+s Friday=2C 9/23 at 5 pm </strong><a href=3D"https://columbiagradunion.us1=
+3.list-manage.com/track/click?u=3Dbf112f248486fb48a139e6aa2&id=3D26d6933d8=
+5&e=3D3121083181" style=3D"mso-line-height-rule: exactly;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: norm=
+al;text-decoration: underline;">on Zoom</a>.&nbsp;</span><br>
+<br>
+<br>
+<span style=3D"font-size:20px"><strong>Keep up the fight for recognition!<=
+/strong></span><br>
+<br>
+<span style=3D"font-size:14px">The SWC bargaining unit is certified by the=
+ National Labor Relations Board (NLRB) in Case Number: <a href=3D"https://=
+columbiagradunion.us13.list-manage.com/track/click?u=3Dbf112f248486fb48a13=
+9e6aa2&id=3D0ad4118d92&e=3D3121083181" target=3D"_blank" style=3D"mso-lin=
+e-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">02-=
+RC-143012</a>. The unit includes all student workers employed by the Unive=
+rsity who provide instructional or research services. The University refus=
+es to recognize all student workers in our unit=2C so we are submitting th=
+e dispute for resolution by the National Labor Relations Board (NLRB) by f=
+iling a unit clarification petition this Fall.<br>
+<br>
+The Recognition Working Group needs all union members to take up this figh=
+t to ensure that no student worker is erroneously excluded from our collec=
+tive power and from being afforded the protections and benefits that our c=
+ontract provides. Join us in this fight by reaching out to your department=
+al organizer and contacting us at swc-recognition-wg@googlegroups.com. Sta=
+y tuned for more concrete ways to get involved in this campaign as it inte=
+nsifies.</span><br>
+<br>
+<span style=3D"font-family:playfair display=2Cgeorgia=2Ctimes new roman=2C=
+serif"><span style=3D"font-size:20px"><strong>Join the Grievance Working G=
+roup! (form in Contacts)&nbsp;</strong></span><br>
+<br>
+<span style=3D"font-size:14px">This month=2C the Grievance Working Group h=
+as continued to process grievances related to late pay=2C childcare subsid=
+ies=2C compensation=2C access to benefits=2C and appointment letters.<br>
+<br>
+Joining this WG is a fantastic way to get to know the ins and outs of the=
+ protections and benefits our contract provides us- and without enforcemen=
+t mechanisms=2C a contract is just a piece of paper. Join us and work out=
+ your union muscle!</span></span><br>
+<br>
+<span style=3D"font-size:20px"><strong>Join the</strong>&nbsp;<strong>Nond=
+iscrimination and Harassment Working Group</strong></span><br>
+<br>
+<span style=3D"font-size:14px">The Nondiscrimination and Harassment (NDH)=
+ Working Group supports union members as they file grievances relating to=
+ discrimination=2C harassment=2C bullying=2C and hostile workplace environ=
+ments on campus. We also connect members to non-Columbia sources of suppor=
+t=2C accompany members to grievance-related meetings upon request=2C and a=
+dvocate for more robust enforcement of SWC's nondiscrimination contract ar=
+ticle. We are looking for union members who would like to take a more acti=
+ve role in advocating for survivors of discrimination and harassment and c=
+urrently planning a Fall schedule of trainings. Join us!<br>
+<br>
+<strong>Contact us&nbsp;at</strong> swc-ndh-wg@googlegroups.com.</span><br=
+>
+<br>
+<span style=3D"font-size:20px"><strong>New Data Management Working Group</=
+strong></span><br>
+<br>
+<span style=3D"font-size:14px">Raphael Sofaer=2C SEAS steward from Compute=
+r Science=2C is looking for members for the new Data Management Working Gr=
+oup!&nbsp; This is a small group of union members who work on the technica=
+l and design aspects of the union's data management system.&nbsp; We take=
+ care of the database=2C make sure we can get our member lists to Columbia=
+ and UAW=2C make sure organizers have the information they need=2C and tak=
+e in new members.&nbsp; Programming experience is not required=2C anyone w=
+ith a good 'systems thinking' perspective can contribute.&nbsp;<br>
+<br>
+<strong>Contact Raphael </strong>at <a href=3D"mailto:rsofaer@gmail.com" t=
+arget=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adju=
+st: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-weight: normal=
+;text-decoration: underline;">rsofaer@gmail.com</a>.</span></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td class=3D"mcnBoxedTextBlockInner" valign=3D"top" style=3D"m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table style=3D"min-width: 100%;border-collapse: collapse;=
+mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-t=
+ext-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table class=3D"mcnTextContentContainer" style=
+=3D"min-width: 100% !important;background-color: #5F718C;border: 1px none;=
+border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cel=
+lspacing=3D"0" border=3D"0">
+                                <tbody><tr>
+                                    <td class=3D"mcnTextContent" style=3D"=
+padding: 18px;color: #F2F2F2;font-family: &quot;Playfair Display&quot;=2C=
+ Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 14px;font-weig=
+ht: normal;text-align: left;mso-line-height-rule: exactly;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-heig=
+ht: 150%;" valign=3D"top">
+                                        <div style=3D"text-align: center;"=
+><span style=3D"font-size:32px">Working Group Address Book </span>
+
+<p style=3D"text-align: left;color: #F2F2F2;font-family: &quot;Playfair Di=
+splay&quot;=2C Georgia=2C &quot;Times New Roman&quot;=2C serif;font-size:=
+ 14px;font-weight: normal;margin: 10px 0;padding: 0;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;line-he=
+ight: 150%;"><br>
+Recognition Working Group:&nbsp;<br>
+<a href=3D"mailto:swc-recognition-wg@googlegroups.com" target=3D"_blank" s=
+tyle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration:=
+ underline;"><span style=3D"color:#a3a3ff">swc-recognition-wg@googlegroups=
+=2Ecom</span></a><br>
+<br>
+Healthcare Working Group:&nbsp;<br>
+<a href=3D"mailto:swchealthfund@gmail.com" target=3D"_blank" style=3D"mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;color: #007C89;font-weight: normal;text-decoration: underline;">=
+<span style=3D"color:#a3a3ff">swchealthfund@gmail.com</span></a><br>
+<br>
+Communications Committee:<br>
+<a href=3D"mailto:swc-comms@googlegroups.com" target=3D"_blank" style=3D"m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underline=
+;"><span style=3D"color:#a3a3ff">swc-comms@googlegroups.com</span></a><br>
+<br>
+Non-Discrimination and Harassment Working Group:<br>
+<a href=3D"mailto:swc-ndh-wg@googlegroups.com" target=3D"_blank" style=3D"=
+mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: underlin=
+e;"><span style=3D"color:#a3a3ff">swc-ndh-wg@googlegroups.com</span></a><b=
+r>
+<br>
+Bylaws Working Group:<br>
+<a href=3D"mailto:swc-bylaws-wg@googlegroups.com" target=3D"_blank" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: unde=
+rline;"><span style=3D"color:#a3a3ff">swc-bylaws-wg@googlegroups.com</span=
+></a><br>
+<br>
+Grievances Working Group=2C Organizers=E2=80=99 Assistance Form:<span styl=
+e=3D"color:#a3a3ff"> </span><br>
+<a href=3D"https://columbiagradunion.us13.list-manage.com/track/click?u=3D=
+bf112f248486fb48a139e6aa2&id=3D0931858a98&e=3D3121083181" target=3D"_blan=
+k" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decorati=
+on: underline;"><span style=3D"color:#a3a3ff">https://docs.google.com/form=
+s/d/e/1FAIpQLSdSezlzAECaoVL6an8E39lHbvFuVOjuQgmv7FnAZohw9aZMyw/viewform</s=
+pan></a><br>
+<br>
+Workplace Problem Form:<br>
+<a href=3D"https://columbiagradunion.us13.list-manage.com/track/click?u=3D=
+bf112f248486fb48a139e6aa2&id=3D74b0c5b659&e=3D3121083181" target=3D"_blan=
+k" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decorati=
+on: underline;"><span style=3D"color:#a3a3ff">https://docs.google.com/form=
+s/d/e/1FAIpQLSfuPzWgghwGaclU8Ph0-AsTzShrXR8fp-koSSyTy5rSvJB2pQ/viewform</s=
+pan></a><br>
+<br>
+Membership Card Drive Campaign:&nbsp;<br>
+<a href=3D"https://columbiagradunion.us13.list-manage.com/track/click?u=3D=
+bf112f248486fb48a139e6aa2&id=3Dc556eef8e6&e=3D3121083181" target=3D"_blan=
+k" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;color: #007C89;font-weight: normal;text-decorati=
+on: underline;"><span style=3D"color:#a3a3ff">https://chat.whatsapp.com/Gv=
+1TVZATryhARq374ZgmrU</span></a></p>
+</div>
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+                            <p style=3D"text-align: center;color: #222222;=
+font-family: &quot;Playfair Display&quot;=2C Georgia=2C &quot;Times New Ro=
+man&quot;=2C serif;font-size: 12px;line-height: 150%;margin: 10px 0;paddin=
+g: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;"><span style=3D"font-family:playfair display=2Cgeorgia=
+=2Ctimes new roman=2Cserif"><span style=3D"font-size:20px"><strong>Classif=
+ieds</strong></span></span></p>
+
+<p style=3D"color: #222222;font-family: &quot;Playfair Display&quot;=2C Ge=
+orgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height:=
+ 150%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;"><br>
+<span style=3D"font-family:playfair display=2Cgeorgia=2Ctimes new roman=2C=
+serif"><span style=3D"font-size:14px"><strong>WANTED: </strong>Picture fra=
+mes! All shapes and sizes.&nbsp; Please email <a href=3D"mailto:cefsteinma=
+n@gmail.com" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #007C89;font-=
+weight: normal;text-decoration: underline;">cefsteinman@gmail.com </a>if y=
+ou have any you'd like to get rid of.</span></span></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding: 0px=
+ 18px 9px;color: #222222;font-family: &quot;Playfair Display&quot;=2C Geor=
+gia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height: 1=
+50%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;text-align: left;" valign=3D"top"=
+>
+
+                            <p style=3D"text-align: center;color: #222222;=
+font-family: &quot;Playfair Display&quot;=2C Georgia=2C &quot;Times New Ro=
+man&quot;=2C serif;font-size: 12px;line-height: 150%;margin: 10px 0;paddin=
+g: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;"><span style=3D"font-family:playfair display=2Cgeorgia=
+=2Ctimes new roman=2Cserif"><span style=3D"font-size:20px"><strong>Note fr=
+om the Wednesday Crew</strong></span></span></p>
+
+<p style=3D"color: #222222;font-family: &quot;Playfair Display&quot;=2C Ge=
+orgia=2C &quot;Times New Roman&quot;=2C serif;font-size: 12px;line-height:=
+ 150%;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;"><br>
+<span style=3D"font-family:playfair display=2Cgeorgia=2Ctimes new roman=2C=
+serif"><span style=3D"font-size:14px">The Wednesday Worker is the official=
+ newsletter of the Student Workers of Columbia. &nbsp;<br>
+If you=E2=80=99re interested in joining the Wednesday Crew=2C <a href=3D"m=
+ailto:swc-newsletter@googlegroups.com" target=3D"_blank" style=3D"mso-line=
+-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #007C89;font-weight: normal;text-decoration: underline;">send=
+ us an email!</a></span></span></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding-top:=
+ 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;word-break: break-word;color: #757575;font-family: Helvetica;font-size:=
+ 16px;line-height: 150%;text-align: left;" valign=3D"top">
+
+                            <span style=3D"color:#000000"><span style=3D"f=
+ont-family:playfair display=2Cgeorgia=2Ctimes new roman=2Cserif"><em>... a=
+nd finally=2C your midweek mischief:</em></span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnImageBlock" style=3D"min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td style=3D"padding: 9px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnImag=
+eBlockInner" valign=3D"top">
+                    <table class=3D"mcnImageContentContainer" style=3D"min=
+-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" style=3D"padding=
+-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom: 0;text-align:=
+ center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;" valign=3D"top">
+
+
+                                        <img alt=3D"" src=3D"https://mcuse=
+rcontent.com/bf112f248486fb48a139e6aa2/images/4776a069-f52a-4cfc-5b89-20b8=
+907b6ecc.jpeg" style=3D"max-width: 1125px;padding-bottom: 0;display: inlin=
+e !important;vertical-align: bottom;border: 0;height: auto;outline: none;t=
+ext-decoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage"=
+ width=3D"564" align=3D"middle">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"=
+templateFooter" data-template-container=3D"" style=3D"background:#333333 n=
+one no-repeat center/cover;mso-line-height-rule: exactly;-ms-text-size-adj=
+ust: 100%;-webkit-text-size-adjust: 100%;background-color: #333333;backgro=
+und-image: none;background-repeat: no-repeat;background-position: center;b=
+ackground-size: cover;border-top: 0;border-bottom: 0;padding-top: 45px;pad=
+ding-bottom: 63px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wi=
+dth=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContain=
+er" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-wid=
+th: 600px !important;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"background:transparent none no-repeat center/cover=
+;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;background-color: transparent;background-image: none;backgr=
+ound-repeat: no-repeat;background-position: center;background-size: cover;=
+border-top: 0;border-bottom: 0;padding-top: 0;padding-bottom: 0;"><table c=
+lass=3D"mcnFollowBlock" style=3D"min-width: 100%;border-collapse: collapse=
+;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0">
+    <tbody class=3D"mcnFollowBlockOuter">
+        <tr>
+            <td style=3D"padding: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFollowBl=
+ockInner" valign=3D"top" align=3D"center">
+                <table class=3D"mcnFollowContentContainer" style=3D"min-wi=
+dth: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace=
+: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" width=3D=
+"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody><tr>
+        <td style=3D"padding-left: 9px;padding-right: 9px;mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+ align=3D"center">
+            <table style=3D"min-width: 100%;border-collapse: collapse;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;" class=3D"mcnFollowContent" width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0">
+                <tbody><tr>
+                    <td style=3D"padding-top: 9px;padding-right: 9px;paddi=
+ng-left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;" valign=3D"top" align=3D"center">
+                        <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" align=3D"center" style=3D"border-collapse: collapse;mso-table-lspac=
+e: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+                            <tbody><tr>
+                                <td valign=3D"top" align=3D"center" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table style=3D"display: inlin=
+e;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" align=3D"left">
+                                                <tbody><tr>
+                                                    <td style=3D"padding-r=
+ight: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size=
+-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFollowContentIt=
+emContainer" valign=3D"top">
+                                                        <table class=3D"mc=
+nFollowContentItem" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td style=
+=3D"padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left:=
+ 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" valign=3D"middle" align=3D"left">
+                                                                    <table=
+ width=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td class=3D"mcnFollowIconContent" width=3D"24" valign=3D"middle" a=
+lign=3D"center" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3D6d4decd53a&e=3D3121083181" targ=
+et=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mail=
+chimp.com/icons/social-block-v2/color-link-48.png" alt=3D"Website" style=
+=3D"display: block;border: 0;height: auto;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;" class=3D"" width=3D"24" height=3D"24=
+"></a>
+                                                                         =
+       </td>
+
+
+                                                                         =
+       <td class=3D"mcnFollowTextContent" style=3D"padding-left: 5px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;" valign=3D"middle" align=3D"left">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3Da1880dc836&e=3D3121083181" targ=
+et=3D"" style=3D"font-family: Helvetica;font-size: 14px;text-decoration: n=
+one;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">Website</a>
+                                                                         =
+       </td>
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table style=3D"display: inlin=
+e;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" align=3D"left">
+                                                <tbody><tr>
+                                                    <td style=3D"padding-r=
+ight: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size=
+-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFollowContentIt=
+emContainer" valign=3D"top">
+                                                        <table class=3D"mc=
+nFollowContentItem" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td style=
+=3D"padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left:=
+ 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" valign=3D"middle" align=3D"left">
+                                                                    <table=
+ width=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td class=3D"mcnFollowIconContent" width=3D"24" valign=3D"middle" a=
+lign=3D"center" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"mailto:swc-newsletter@googlegroups.com" target=3D"_b=
+lank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.co=
+m/icons/social-block-v2/color-forwardtofriend-48.png" alt=3D"Email" style=
+=3D"display: block;border: 0;height: auto;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;" class=3D"" width=3D"24" height=3D"24=
+"></a>
+                                                                         =
+       </td>
+
+
+                                                                         =
+       <td class=3D"mcnFollowTextContent" style=3D"padding-left: 5px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;" valign=3D"middle" align=3D"left">
+                                                                         =
+           <a href=3D"mailto:swc-newsletter@googlegroups.com" target=3D""=
+ style=3D"font-family: Helvetica;font-size: 14px;text-decoration: none;col=
+or: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">Email</a>
+                                                                         =
+       </td>
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table style=3D"display: inlin=
+e;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" align=3D"left">
+                                                <tbody><tr>
+                                                    <td style=3D"padding-r=
+ight: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size=
+-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFollowContentIt=
+emContainer" valign=3D"top">
+                                                        <table class=3D"mc=
+nFollowContentItem" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td style=
+=3D"padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left:=
+ 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" valign=3D"middle" align=3D"left">
+                                                                    <table=
+ width=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td class=3D"mcnFollowIconContent" width=3D"24" valign=3D"middle" a=
+lign=3D"center" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3D404a71e625&e=3D3121083181" targ=
+et=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mail=
+chimp.com/icons/social-block-v2/color-twitter-48.png" alt=3D"Twitter" styl=
+e=3D"display: block;border: 0;height: auto;outline: none;text-decoration:=
+ none;-ms-interpolation-mode: bicubic;" class=3D"" width=3D"24" height=3D"=
+24"></a>
+                                                                         =
+       </td>
+
+
+                                                                         =
+       <td class=3D"mcnFollowTextContent" style=3D"padding-left: 5px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;" valign=3D"middle" align=3D"left">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3D7b943b89fe&e=3D3121083181" targ=
+et=3D"" style=3D"font-family: Helvetica;font-size: 14px;text-decoration: n=
+one;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">Twitter</a>
+                                                                         =
+       </td>
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table style=3D"display: inlin=
+e;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" align=3D"left">
+                                                <tbody><tr>
+                                                    <td style=3D"padding-r=
+ight: 10px;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size=
+-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFollowContentIt=
+emContainer" valign=3D"top">
+                                                        <table class=3D"mc=
+nFollowContentItem" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td style=
+=3D"padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left:=
+ 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" valign=3D"middle" align=3D"left">
+                                                                    <table=
+ width=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td class=3D"mcnFollowIconContent" width=3D"24" valign=3D"middle" a=
+lign=3D"center" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3D98894820a8&e=3D3121083181" targ=
+et=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mail=
+chimp.com/icons/social-block-v2/color-instagram-48.png" alt=3D"Instagram"=
+ style=3D"display: block;border: 0;height: auto;outline: none;text-decorat=
+ion: none;-ms-interpolation-mode: bicubic;" class=3D"" width=3D"24" height=
+=3D"24"></a>
+                                                                         =
+       </td>
+
+
+                                                                         =
+       <td class=3D"mcnFollowTextContent" style=3D"padding-left: 5px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;" valign=3D"middle" align=3D"left">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3D18bb607bf1&e=3D3121083181" targ=
+et=3D"" style=3D"font-family: Helvetica;font-size: 14px;text-decoration: n=
+one;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">Instagram</a>
+                                                                         =
+       </td>
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table style=3D"display: inlin=
+e;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" align=3D"left">
+                                                <tbody><tr>
+                                                    <td style=3D"padding-r=
+ight: 0;padding-bottom: 9px;mso-line-height-rule: exactly;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFollowContentItemC=
+ontainer" valign=3D"top">
+                                                        <table class=3D"mc=
+nFollowContentItem" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td style=
+=3D"padding-top: 5px;padding-right: 10px;padding-bottom: 5px;padding-left:=
+ 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" valign=3D"middle" align=3D"left">
+                                                                    <table=
+ width=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"left=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td class=3D"mcnFollowIconContent" width=3D"24" valign=3D"middle" a=
+lign=3D"center" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3De62f75c825&e=3D3121083181" targ=
+et=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mail=
+chimp.com/icons/social-block-v2/color-link-48.png" alt=3D"Discord" style=
+=3D"display: block;border: 0;height: auto;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;" class=3D"" width=3D"24" height=3D"24=
+"></a>
+                                                                         =
+       </td>
+
+
+                                                                         =
+       <td class=3D"mcnFollowTextContent" style=3D"padding-left: 5px;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;" valign=3D"middle" align=3D"left">
+                                                                         =
+           <a href=3D"https://columbiagradunion.us13.list-manage.com/track=
+/click?u=3Dbf112f248486fb48a139e6aa2&id=3D2d4472a55b&e=3D3121083181" targ=
+et=3D"" style=3D"font-family: Helvetica;font-size: 14px;text-decoration: n=
+one;color: #FFFFFF;mso-line-height-rule: exactly;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">Discord</a>
+                                                                         =
+       </td>
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-c=
+ollapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !importa=
+nt;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" style=3D"min-width: 100=
+%;border-top: 2px solid #505050;border-collapse: collapse;mso-table-lspace=
+: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D=
+"0">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table class=3D"mcnTextBlock" style=3D"min-width: 100%;border-coll=
+apse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;" width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td class=3D"mcnTextBlockInner" style=3D"padding-top: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" valign=3D"top">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table style=3D"max-width: 100%;min-width: 100%;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnTextContentConta=
+iner" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" alig=
+n=3D"left">
+                    <tbody><tr>
+
+                        <td class=3D"mcnTextContent" style=3D"padding-top:=
+ 0;padding-right: 18px;padding-bottom: 9px;padding-left: 18px;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;word-break: break-word;color: #FFFFFF;font-family: Helvetica;font-size:=
+ 12px;line-height: 150%;text-align: center;" valign=3D"top">
+
+                            <em>Copyright =C2=A9 2022 Student Workers of C=
+olumbia=2C All rights reserved.</em>
+<br>
+    You signed up to receive updates from the Student Workers of Columbia.
+    <br>
+    <br>
+    <strong>Our mailing address is:</strong>
+    <br>
+    <div class=3D"vcard"><span class=3D"org fn">Student Workers of Columbi=
+a</span><div class=3D"adr"><div class=3D"street-address">116th St & Broadw=
+ay</div><span class=3D"locality">New York</span>=2C <span class=3D"region"=
+>NY</span> <span class=3D"postal-code">10027</span></div><br><a href=3D"ht=
+tps://columbiagradunion.us13.list-manage.com/vcard?u=3Dbf112f248486fb48a13=
+9e6aa2&id=3D99b5b180ae" class=3D"hcard-download">Add us to your address bo=
+ok</a></div>
+    <br>
+    <br>
+=09Want to change how you receive these emails?<br>
+    You can <a href=3D"https://student-workers-of-columbia.mailchimpsites.=
+com/manage/preferences?u=3Dbf112f248486fb48a139e6aa2&id=3D99b5b180ae&e=3D3121083181&c=3D6c2e5d5c51" style=3D"mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;color: #FFFFFF;font-weight:=
+ normal;text-decoration: underline;">update your preferences</a> or <a hre=
+f=3D"https://columbiagradunion.us13.list-manage.com/unsubscribe?u=3Dbf112f=
+248486fb48a139e6aa2&id=3D99b5b180ae&e=3D3121083181&c=3D6c2e5d5c51" style=3D"=
+mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;color: #FFFFFF;font-weight: normal;text-decoration: underlin=
+e;">unsubscribe from this list</a>.
+    <br>
+    <br>
+ <a href=3D"http://www.mailchimp.com/email-referral/?utm_source=3Dfreemium=
+_newsletter&utm_medium=3Demail&utm_campaign=3Dreferral_marketing&aid=3Dbf1=
+12f248486fb48a139e6aa2&afl=3D1"><img src=3D"https://cdn-images.mailchimp.c=
+om/monkey_rewards/MC_MonkeyReward_15.png" border=3D"0" alt=3D"Email Market=
+ing Powered by Mailchimp" title=3D"Mailchimp Email Marketing" width=3D"139=
+" height=3D"54" style=3D"max-width: 100%; height: auto;"></a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://columbiagradunion.us13.list-manage.com/track/open.=
+php?u=3Dbf112f248486fb48a139e6aa2&id=3D6c2e5d5c51&e=3D3121083181" height=
+=3D"1" width=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_1070148371--

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Vacant Storefronts</title>
+		<script type="text/javascript" src="./d3.js"></script>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+		<style>
+			/*your css here, can align everything in the middle here*/
+			#map{
+				width:1000px;
+				height:500px;
+			}
+
+		body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .boro-button {
+            margin-right: 1rem;
+            padding: 0.5rem 0.2rem;
+        }
+		</style>
+	</head>
+	
+	<body>
+		<img src="cover.jpg">
+		</br/>			
+        <div id = "title">Vacant Storefronts</div>
+		<div id = "byline">By Sean Chew, Haoche Hung, & Varisa Tanti</div>
+		<div id = "subhead">Subhead text subhead text subhead text subhead text subhead text.</div>
+		</br/>
+		<div id = "map1title">Title for Map 1</div>
+		<div id = "map"></div>
+		<div id = "maptext">Text for Map 1</div>
+		</br/>
+		<div id = "chart1title">Type of Storefronts</div>
+		<div class="year-button">
+			<button id="button2019" class="year-button" reporting_year="2019 and 2020">2019</button>
+			<button id="button2020" class="year-button" reporting_year="2020 and 2021">2020</button>
+			<button id="buttonchange" class="year-button" reporting_year="ZXXXXXZ">Change</button>
+		</br/>
+		<div id = "chart1"></div>
+		<div id = "chart2"></div>
+		<div id = "bar1text">Text for Chart 1</div>
+		</br/>
+		<div id = "chart2title">Title for Chart 2</div>
+		<h2 id="title">Manhattan</h2>
+		
+		<div class="buttons">
+			<button class="boro-button" data-boronum="1">manhattan</button>
+			<button class="boro-button" data-boronum="2">bronx</button>
+			<button class="boro-button" data-boronum="3">brooklyn</button>
+			<button class="boro-button" data-boronum="4">queens</button>
+		</br/>
+		<div id = "scatterplot"></div>
+		
+		</div>
+		
+		<script type = "text/javascript" src="mapboxmap.js"></script>
+		<script type = "text/javascript" src="barchart_count.js"></script>
+		<script type = "text/javascript" src="scatterplot.js"></script>
+
+
+<script>
+
+
+Promise.all([d3.csv("data/storefronts_count_yr.csv"),d3.csv("data/storefront_MapPluto_NTA.csv"),d3.csv("data/time_scale_data.csv")])
+.then(function(data){
+	scatterPlot(data[1])
+	barChart_count(data[0])
+	
+})
+</script>
+
+		
+	</body>
+</html>
